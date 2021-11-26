@@ -1,0 +1,27 @@
+Bindings and Shadowing
+In Scala, a binding shadows
+bindings of lower precedence
+within the same scope. A binding shadows bindings of the
+same or lower precedence in
+an outer scope. This is what
+allows us to write:
+class Foo(x : Int) {
+ def tmp = {
+ val x = 2
+ x
+ }
+}
+And have calls to tmp return
+the value 2
+
+1 Definitions and declarations that are
+local, inherited, or made available by a
+package clause in the same source file
+where the definition occurs have highest
+precedence.
+2 Explicit imports have next highest
+precedence.
+3 Wildcard imports (import foo._) have
+next highest precedence.
+4 Definitions made available by a package
+clause not in the source file where the definition occurs have lowest precedence.
